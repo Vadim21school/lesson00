@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 15:40:56 by agina             #+#    #+#             */
-/*   Updated: 2020/11/16 15:44:53 by agina            ###   ########.fr       */
+/*   Created: 2020/10/29 17:53:52 by agina             #+#    #+#             */
+/*   Updated: 2020/11/06 16:48:41 by agina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void	*ft_memchr(const void *arr, int c, size_t n)
+int	ft_isalpha(int c)
 {
-	size_t i;
-
-	i = 0;
-	while (i < n)
-	{
-		if (((unsigned char *)arr)[i] == (unsigned char)c)
-			return ((unsigned char*)arr + i);
-		i++;
-	}
-	return (0);
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (c);
+	else
+		return (0);
 }

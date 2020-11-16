@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 15:40:56 by agina             #+#    #+#             */
-/*   Updated: 2020/11/16 15:44:53 by agina            ###   ########.fr       */
+/*   Created: 2020/11/03 17:30:27 by agina             #+#    #+#             */
+/*   Updated: 2020/11/06 17:08:35 by agina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void	*ft_memchr(const void *arr, int c, size_t n)
+int	ft_isprint(int per)
 {
-	size_t i;
-
-	i = 0;
-	while (i < n)
-	{
-		if (((unsigned char *)arr)[i] == (unsigned char)c)
-			return ((unsigned char*)arr + i);
-		i++;
-	}
-	return (0);
+	if (per >= 32 && per <= 126)
+		return (per);
+	else
+		return (0);
 }

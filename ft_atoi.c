@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   atoi.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 15:40:56 by agina             #+#    #+#             */
-/*   Updated: 2020/11/16 15:44:53 by agina            ###   ########.fr       */
+/*   Created: 2020/11/03 15:20:22 by agina             #+#    #+#             */
+/*   Updated: 2020/11/06 17:39:10 by agina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void	*ft_memchr(const void *arr, int c, size_t n)
+int	ft_atoi(const char *str)
 {
-	size_t i;
+	int res;
+	int	minus;
 
-	i = 0;
-	while (i < n)
+	minus = 1;
+	res = 0;
+	while (*str == ' ' || *str == '\n' || *str == '\t' ||
+			*str == '\v' || *str == '\f' || *str == '\r')
+		++str;
+	if (*str == '-')
+		minus = -1;
+	if (*str == '-' || *str == '+')
+		++str;
+	while (*str >= '0' && *str <= '9')
 	{
-		if (((unsigned char *)arr)[i] == (unsigned char)c)
-			return ((unsigned char*)arr + i);
-		i++;
+		res = res * 10 + *str - '0';
+		++str;
 	}
-	return (0);
+	return (res * minus);
 }

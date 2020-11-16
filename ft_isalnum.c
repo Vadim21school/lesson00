@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 15:40:56 by agina             #+#    #+#             */
-/*   Updated: 2020/11/16 15:44:53 by agina            ###   ########.fr       */
+/*   Created: 2020/11/03 16:02:33 by agina             #+#    #+#             */
+/*   Updated: 2020/11/06 17:42:06 by agina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void	*ft_memchr(const void *arr, int c, size_t n)
+int	ft_isalnum(int per)
 {
-	size_t i;
-
-	i = 0;
-	while (i < n)
-	{
-		if (((unsigned char *)arr)[i] == (unsigned char)c)
-			return ((unsigned char*)arr + i);
-		i++;
-	}
-	return (0);
+	if ((per >= 97 && per <= 122) ||
+			(per >= 65 && per <= 90) || (per >= 48 && per <= 57))
+		return (per);
+	else
+		return (0);
 }

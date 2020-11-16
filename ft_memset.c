@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 15:40:56 by agina             #+#    #+#             */
-/*   Updated: 2020/11/16 15:44:53 by agina            ###   ########.fr       */
+/*   Created: 2020/11/03 19:17:31 by agina             #+#    #+#             */
+/*   Updated: 2020/11/06 19:11:36 by agina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-void	*ft_memchr(const void *arr, int c, size_t n)
+#include <stdio.h>
+
+void	*ft_memset(void *dest, int c, size_t len)
 {
-	size_t i;
+	int i;
 
 	i = 0;
-	while (i < n)
+	while (i < len)
 	{
-		if (((unsigned char *)arr)[i] == (unsigned char)c)
-			return ((unsigned char*)arr + i);
+		((unsigned char *)dest)[i] = (unsigned char)c;
 		i++;
 	}
-	return (0);
+	return (dest);
 }

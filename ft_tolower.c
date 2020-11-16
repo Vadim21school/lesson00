@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 15:40:56 by agina             #+#    #+#             */
-/*   Updated: 2020/11/16 15:44:53 by agina            ###   ########.fr       */
+/*   Created: 2020/11/03 17:58:50 by agina             #+#    #+#             */
+/*   Updated: 2020/11/06 17:14:53 by agina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-void	*ft_memchr(const void *arr, int c, size_t n)
+int	ft_tolower(int character)
 {
-	size_t i;
-
-	i = 0;
-	while (i < n)
-	{
-		if (((unsigned char *)arr)[i] == (unsigned char)c)
-			return ((unsigned char*)arr + i);
-		i++;
-	}
-	return (0);
+	if (character >= 48 && character <= 57)
+		return (character + 32);
+	else if (character >= 97 && character <= 122)
+		return (character);
+	else
+		return (0);
 }
