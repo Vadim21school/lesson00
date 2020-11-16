@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 16:00:35 by agina             #+#    #+#             */
-/*   Updated: 2020/11/16 16:05:20 by agina            ###   ########.fr       */
+/*   Created: 2020/10/29 13:53:49 by agina             #+#    #+#             */
+/*   Updated: 2020/11/16 18:09:13 by agina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strrchr(const char *str, int ch)
 {
-	unsigned int i;
+	int i;
 
 	i = 0;
-	while (src[i] != '\0' && i < (size - 1))
+	while (str[i] != '\0')
 	{
-		dst[i] = src[i];
-		++i;
-	}
-	dst[i] = '\0';
-	while (src[i])
 		i++;
-	return (i);
+	}
+	while (i--)
+	{
+		if (str[i] == (char)ch)
+			return ((char*)str + i);
+	}
+	return (0);
 }

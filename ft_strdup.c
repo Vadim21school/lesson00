@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 16:00:35 by agina             #+#    #+#             */
-/*   Updated: 2020/11/16 16:05:20 by agina            ###   ########.fr       */
+/*   Created: 2020/11/16 19:08:30 by agina             #+#    #+#             */
+/*   Updated: 2020/11/16 19:26:33 by agina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strdup(char *src)
 {
-	unsigned int i;
+	char	*dest;
+	int		len;
+	int		i;
 
+	len = 0;
 	i = 0;
-	while (src[i] != '\0' && i < (size - 1))
+	while (src[len] != '\0')
+		len++;
+	dest = (char*)malloc(sizeof(*dest) * len + 1);
+	while (i < len)
 	{
-		dst[i] = src[i];
-		++i;
-	}
-	dst[i] = '\0';
-	while (src[i])
+		dest[i] = src[i];
 		i++;
-	return (i);
+	}
+	dest[i] = '\0';
+	return (dest);
 }

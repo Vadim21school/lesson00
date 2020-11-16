@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/16 16:00:35 by agina             #+#    #+#             */
-/*   Updated: 2020/11/16 16:05:20 by agina            ###   ########.fr       */
+/*   Created: 2020/11/16 18:35:31 by agina             #+#    #+#             */
+/*   Updated: 2020/11/16 19:22:24 by agina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <stdlib.h>
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	*ft_calloc(size_t count, size_t size)
 {
+	char *dst;
+	unsigned int total;
 	unsigned int i;
 
+	total = count * size;
+	dst = malloc(total);
+	if (!dst)
+		return (NULL);
 	i = 0;
-	while (src[i] != '\0' && i < (size - 1))
+	while (total--)
 	{
-		dst[i] = src[i];
-		++i;
-	}
-	dst[i] = '\0';
-	while (src[i])
+		dst[i] = 0;
 		i++;
-	return (i);
+	}
+	return ((void *)dst);
 }
