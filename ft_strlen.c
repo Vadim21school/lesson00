@@ -8,7 +8,7 @@ size_t	*ft_strlen (const char *str)
 	i = 0;
 	while (str[i])
 		i++;
-	return ((int*)i);
+	return ((size_t*)i);
 }
 
 int main (void)
