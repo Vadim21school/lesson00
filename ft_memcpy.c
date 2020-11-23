@@ -5,6 +5,8 @@
 void *ft_memcpy(void *destination, const void *source, size_t n)
 {
 	size_t i = 0;
+	if (!destination && !source)
+		return (NULL);
 	while (i < n)
 	{
 		((char *)destination)[i] =  ((char *)source)[i];
